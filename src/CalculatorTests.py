@@ -40,5 +40,20 @@ class MyTestCase(unittest.TestCase):
 
 
 
+       #   DIVISION TEST
+    def test_division(self):
+        test_data_div = CsvReader('/src/division.csv').data
+        print('')
+        print('******TEST_DIVISION******')
+        for row in test_data_div:
+                 self.assertAlmostEqual(self.calculator.divide(float(row['Value 1']),float(row['Value 2'])), float(row['Result']),places=8)
+                 self.assertAlmostEqual(float(self.calculator.result), float(row['Result']))
+
+                 print(row['Value 2'] + ' / ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(self.calculator.result))
+
+        CsvReader.data.clear()
+
+
+
 if __name__ == '__main__':
     unittest.main()
