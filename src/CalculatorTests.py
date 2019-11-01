@@ -19,8 +19,24 @@ class MyTestCase(unittest.TestCase):
 
                 print(row['Value 1'] + ' + ' + row['Value 2'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
 
+        CsvReader.data.clear()
+
+
+        #   SUBTRACTION TEST
+    def test_subtraction(self):
+        test_data_sub = CsvReader('/src/subtraction.csv').data
+        print('')
+        print('******TEST_SUBTRACTION******')
+
+        for row in test_data_sub:
+                self.assertEqual(self.calculator.subtract(row['Value 1'], row['Value 2']), int(row['Result']))
+                self.assertEqual(self.calculator.result, int(row['Result']))
+                print(row['Value 2'] + ' - ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
 
         CsvReader.data.clear()
+
+
+
 
 
 
