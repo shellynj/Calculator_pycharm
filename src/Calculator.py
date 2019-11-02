@@ -1,4 +1,3 @@
-from CsvReader import CsvReader
 import math
 
 
@@ -26,7 +25,7 @@ def multiplication(a, b):
 def division(a, b):
   a = float(a)
   b = float(b)
-  return float(b)/float(a)
+  return round((b/a),9)
 
 
 def square(a):
@@ -78,11 +77,3 @@ class Calculator:
         self.result = square_root(a)
         return self.result
 
-
-
-class CSVStats(Calculator):
-    data = []
-
-    def __init__(self, data_file):
-        self.data = CsvReader(data_file)
-        pass

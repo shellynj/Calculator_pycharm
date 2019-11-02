@@ -57,10 +57,9 @@ class MyTestCase(unittest.TestCase):
         print('')
         print('******TEST_DIVISION******')
         for row in test_data_div:
-                 self.assertAlmostEqual(self.calculator.divide(float(row['Value 1']),float(row['Value 2'])), float(row['Result']),places=8)
-                 self.assertAlmostEqual(float(self.calculator.result), float(row['Result']))
-
-                 print(row['Value 2'] + ' / ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(self.calculator.result))
+                 self.assertEqual(self.calculator.divide(float(row['Value 1']),float(row['Value 2'])), float(row['Result']))
+                 self.assertEqual(float(self.calculator.result), float(row['Result']))
+                 print(row['Value 2'] + ' / ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(round(self.calculator.result,9)))
 
         CsvReader.data.clear()
 
@@ -84,6 +83,9 @@ class MyTestCase(unittest.TestCase):
         print('******TEST_SQUARE_ROOT******')
         for row in test_data_square:
                  self.assertAlmostEqual(self.calculator.squ_root(float(row['Value 1'])), float(row['Result']),places=8)
+
+                # self.assertEqual(self.calculator.squ_root(float(row['Value 1'])), float(row['Result']))
+                # self.assertEqual(self.calculator.result, float(row['Result']))
                  self.assertAlmostEqual(self.calculator.result, float(row['Result']))
                  print( 'Square Root of:', row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(self.calculator.result))
 
@@ -91,7 +93,8 @@ class MyTestCase(unittest.TestCase):
         CsvReader.data.clear()
 
 
-
+    def test_results_property(self):
+        self.assertEqual(self.calculator.result, 0)
 
 
 if __name__ == '__main__':
