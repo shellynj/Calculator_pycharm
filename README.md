@@ -1,4 +1,4 @@
-# Calculatorin Pycharm
+# Calculator in Python using Pycharm
 
 ## Objective:   
 For this project students will create a calculator using Python that has automated unit tests.  The calculator must perform the following operations: addition, subtraction, multiplication, division, square, and square root.  The correct use of static methods, object methods, object attributes / properties, should be applied.   The included .csv files should be used to load data for your unit tests.  Use each file to test the associated operation.   
@@ -12,3 +12,4 @@ You need to make at least 7 unit tests and should develop your tests as you writ
 * Your docker file is setup to run the program
 
 View Output Results File []
+[View Output Results File](/shellynj/Calculator_pycharm)
