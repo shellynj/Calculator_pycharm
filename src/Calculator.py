@@ -58,6 +58,9 @@ class Calculator:
         return self.result
 
 
+
+
+
 class CSVStats(Calculator):
     data = []
 
