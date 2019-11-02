@@ -18,7 +18,7 @@ class MyTestCase(unittest.TestCase):
                 self.assertEqual(self.calculator.result, int(row['Result']))
 
                 print(row['Value 1'] + ' + ' + row['Value 2'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
-
+        # Clear Csv Reader for next unit test
         CsvReader.data.clear()
 
 
@@ -32,7 +32,7 @@ class MyTestCase(unittest.TestCase):
                 self.assertEqual(self.calculator.subtract(row['Value 1'], row['Value 2']), int(row['Result']))
                 self.assertEqual(self.calculator.result, int(row['Result']))
                 print(row['Value 2'] + ' - ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
-
+        # Clear Csv Reader for next unit test
         CsvReader.data.clear()
 
 
@@ -46,7 +46,7 @@ class MyTestCase(unittest.TestCase):
                 self.assertEqual(self.calculator.result, int(row['Result']))
 
                 print(row['Value 2'] + ' * ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
-
+        # Clear Csv Reader for next unit test
         CsvReader.data.clear()
 
 
@@ -60,7 +60,7 @@ class MyTestCase(unittest.TestCase):
                  self.assertEqual(self.calculator.divide(float(row['Value 1']),float(row['Value 2'])), float(row['Result']))
                  self.assertEqual(float(self.calculator.result), float(row['Result']))
                  print(row['Value 2'] + ' / ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(round(self.calculator.result,9)))
-
+        # Clear Csv Reader for next unit test
         CsvReader.data.clear()
 
 
@@ -73,7 +73,7 @@ class MyTestCase(unittest.TestCase):
                  self.assertEqual(self.calculator.squ(int(row['Value 1'])),int(row['Result']))
                  self.assertEqual(self.calculator.result, int(row['Result']))
                  print( 'Square of:', row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
-
+        # Clear Csv Reader for next unit test
         CsvReader.data.clear()
 
 
@@ -82,14 +82,12 @@ class MyTestCase(unittest.TestCase):
         print('')
         print('******TEST_SQUARE_ROOT******')
         for row in test_data_square:
+                # Square root results are rounded to 8 places
                  self.assertAlmostEqual(self.calculator.squ_root(float(row['Value 1'])), float(row['Result']),places=8)
-
-                # self.assertEqual(self.calculator.squ_root(float(row['Value 1'])), float(row['Result']))
-                # self.assertEqual(self.calculator.result, float(row['Result']))
                  self.assertAlmostEqual(self.calculator.result, float(row['Result']))
                  print( 'Square Root of:', row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(self.calculator.result))
 
-
+        # Clear Csv Reader for next unit test
         CsvReader.data.clear()
 
 

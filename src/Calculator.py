@@ -40,8 +40,6 @@ def square_root(a):
   return b
 
 
-
-
 class Calculator:
     result = 0
 
