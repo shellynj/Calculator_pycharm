@@ -78,6 +78,20 @@ class MyTestCase(unittest.TestCase):
         CsvReader.data.clear()
 
 
+    def test_square_root(self):
+        test_data_square = CsvReader('/src/square_root.csv').data
+        print('')
+        print('******TEST_SQUARE_ROOT******')
+        for row in test_data_square:
+                 self.assertAlmostEqual(self.calculator.squ_root(float(row['Value 1'])), float(row['Result']),places=8)
+                 self.assertAlmostEqual(self.calculator.result, float(row['Result']))
+                 print( 'Square Root of:', row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(self.calculator.result))
+
+
+        CsvReader.data.clear()
+
+
+
 
 
 if __name__ == '__main__':
