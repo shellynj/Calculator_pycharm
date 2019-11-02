@@ -36,7 +36,18 @@ class MyTestCase(unittest.TestCase):
         CsvReader.data.clear()
 
 
+        #   MULTIPLICATION TEST
+    def test_multiplication(self):
+        test_data_multi = CsvReader('/src/multiplication.csv').data
+        print('')
+        print('******TEST_MULTIPLICATION******')
+        for row in test_data_multi:
+                self.assertEqual(self.calculator.multiply(row['Value 1'], row['Value 2']), int(row['Result']))
+                self.assertEqual(self.calculator.result, int(row['Result']))
 
+                print(row['Value 2'] + ' * ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
+
+        CsvReader.data.clear()
 
 
 
@@ -52,6 +63,20 @@ class MyTestCase(unittest.TestCase):
                  print(row['Value 2'] + ' / ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(self.calculator.result))
 
         CsvReader.data.clear()
+
+
+        #   SQUARE TEST
+    def test_square(self):
+        test_data_square = CsvReader('/src/square.csv').data
+        print('')
+        print('******TEST_SQUARE******')
+        for row in test_data_square:
+                 self.assertEqual(self.calculator.squ(int(row['Value 1'])),int(row['Result']))
+                 self.assertEqual(self.calculator.result, int(row['Result']))
+                 print( 'Square of:', row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
+
+        CsvReader.data.clear()
+
 
 
 
