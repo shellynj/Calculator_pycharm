@@ -24,11 +24,11 @@ class MyTestCase(unittest.TestCase):
 
         #   SUBTRACTION TEST
     def test_subtraction(self):
-        test_data_sub = CsvReader('/src/subtraction.csv').data
+        test_data = CsvReader('/src/subtraction.csv').data
         print('')
         print('******TEST_SUBTRACTION******')
 
-        for row in test_data_sub:
+        for row in test_data:
                 self.assertEqual(self.calculator.subtract(row['Value 1'], row['Value 2']), int(row['Result']))
                 self.assertEqual(self.calculator.result, int(row['Result']))
                 print(row['Value 2'] + ' - ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
@@ -38,10 +38,10 @@ class MyTestCase(unittest.TestCase):
 
         #   MULTIPLICATION TEST
     def test_multiplication(self):
-        test_data_multi = CsvReader('/src/multiplication.csv').data
+        test_data = CsvReader('/src/multiplication.csv').data
         print('')
         print('******TEST_MULTIPLICATION******')
-        for row in test_data_multi:
+        for row in test_data:
                 self.assertEqual(self.calculator.multiply(row['Value 1'], row['Value 2']), int(row['Result']))
                 self.assertEqual(self.calculator.result, int(row['Result']))
 
@@ -53,10 +53,10 @@ class MyTestCase(unittest.TestCase):
 
        #   DIVISION TEST
     def test_division(self):
-        test_data_div = CsvReader('/src/division.csv').data
+        test_data= CsvReader('/src/division.csv').data
         print('')
         print('******TEST_DIVISION******')
-        for row in test_data_div:
+        for row in test_data:
                  self.assertEqual(self.calculator.divide(float(row['Value 1']),float(row['Value 2'])), float(row['Result']))
                  self.assertEqual(float(self.calculator.result), float(row['Result']))
                  print(row['Value 2'] + ' / ' + row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', float(round(self.calculator.result,9)))
@@ -66,10 +66,10 @@ class MyTestCase(unittest.TestCase):
 
         #   SQUARE TEST
     def test_square(self):
-        test_data_square = CsvReader('/src/square.csv').data
+        test_data = CsvReader('/src/square.csv').data
         print('')
         print('******TEST_SQUARE******')
-        for row in test_data_square:
+        for row in test_data:
                  self.assertEqual(self.calculator.squ(int(row['Value 1'])),int(row['Result']))
                  self.assertEqual(self.calculator.result, int(row['Result']))
                  print( 'Square of:', row['Value 1'] + ' = ' + row['Result'] + ', Expect: ', self.calculator.result)
@@ -78,10 +78,10 @@ class MyTestCase(unittest.TestCase):
 
 
     def test_square_root(self):
-        test_data_square = CsvReader('/src/square_root.csv').data
+        test_data = CsvReader('/src/square_root.csv').data
         print('')
         print('******TEST_SQUARE_ROOT******')
-        for row in test_data_square:
+        for row in test_data:
                 # Square root results are rounded to 8 places
                  self.assertAlmostEqual(self.calculator.squ_root(float(row['Value 1'])), float(row['Result']),places=8)
                  self.assertAlmostEqual(self.calculator.result, float(row['Result']))
